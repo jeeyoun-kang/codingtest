@@ -14,4 +14,3 @@ while (n !=1):
         n -= result
         count +=result
 print(count)
-print(count)
