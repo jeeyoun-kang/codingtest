@@ -1,2 +1,2 @@
-for i in range(4,0,-1):
-    print(i)
+stack = ['1','5','2','3']
+print(stack[::-1])
