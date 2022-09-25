@@ -7,7 +7,7 @@
 
 nx = 1
 ny= 1
-N = int(input()) #공간 크기
+N = int(input()) #공간 크기///
 data = list(map(str,input().split()))
 
 for i in data:
