@@ -11,3 +11,6 @@
 #         if k%2==1:
 #             loc[j][k]+=tree[j][k]
 #         k+=1
+
+tree={1:[1,0]}
+print(tree.get(0))
