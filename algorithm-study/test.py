@@ -1,16 +1,14 @@
-# from sys import stdin
-# v = int(stdin.readline()) #트리의 정점 개수
-# tree=[]
-# loc = [[0] for _ in range(v)]
-# for i in range(v):
-#     tree.append(list(map(int,stdin.readline().split())))
-#
-# for j in range(len(tree)):
-#     k = 0
-#     while(tree[j][k]==-1):
-#         if k%2==1:
-#             loc[j][k]+=tree[j][k]
-#         k+=1
+import sys
+input = sys.stdin.readline
 
-tree={1:[1,0]}
-print(tree.get(0))
+N = int(input()) ; Dic = [0] * (1+N)
+for i in range(1, 1+N) :
+    a, b, c = map(int,input().split()) ; Dic[a] = (b, c)
+
+D = [] ; D.append(1) ; Ans = 2*(N-1)
+while D :
+    n = D.pop() ; a, b = Dic[n]
+    if b != -1 : D.append(b)
+    Ans -= 1
+
+print(Ans+1)

@@ -1,40 +1,20 @@
 import sys
+input = sys.stdin.readline
 
-n = int(sys.stdin.readline().rstrip())
+N = int(input())
+ch2 = [0]*(N+1)
 
-tree = {}
-for i in range(n):
-    root, l, r = map(int, sys.stdin.readline().rstrip().split())
-    tree[root] = [l, r]
+for i in range(N):
+    a,b,c = map(int,input().split())
+    ch2[a] = c
 
-
-cnt = 0
-right = 0
-now = 1
-
+t = 1
+cnt = -1
 while True:
-    if tree[now][1] == -1:
+    t = ch2[t]
+    cnt += 1
+    if t == -1:
         break
-    else:
-        now = tree[now][1]
-        right += 1
 
-stack = [1]
 
-while stack:
-    now = stack[-1]
-    l, r = tree[now]
-
-    if l != -1:
-        tree[now][0] = -1
-        cnt += 2
-        stack.append(l)
-        continue
-
-    stack.pop()
-    if r != -1:
-        tree[now][1] = -1
-        cnt += 2
-        stack.append(r)
-
-print(cnt - right)
+print((N-1)*2 - cnt)
