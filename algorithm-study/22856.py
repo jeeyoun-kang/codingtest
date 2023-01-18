@@ -1,3 +1,5 @@
+import time
+start_time = time.time() # 측정 시작
 import sys
 input=sys.stdin.readline
 sys.setrecursionlimit(10**9)
@@ -35,3 +37,5 @@ count2=0
 visit=[False]*(n+1)
 dfs2(1)
 print(2*count-count2)
+
+

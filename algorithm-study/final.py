@@ -1,40 +1,21 @@
-test=[]
-# DFS 함수 정의
-def dfs(graph, v, visited,count):
+import time
+start_time = time.time() # 측정 시작
+import sys
+input = sys.stdin.readline
+villiage = []
+all_people = 0
+N = int(input())
+for i in range(N):
+    n_viliage, people = map(int, input().split())
+    villiage.append([n_viliage, people])
+    all_people += people
 
-    # 현재 노드를 방문 처리
-    visited[v] = True
-    count+=1
-    test.append(1)
-    print(v, end=' ')
-    print(count, end=' ')
-    # 현재 노드와 연결된 다른 노드를 재귀적으로 방문
-    for i in graph[v]:
-
-            # 만약 방문하지 않은 노드가 있다면
-        if not visited[i]:
-            test.append(1)
-            # 탐색 시작
-            dfs(graph, i, visited,count)
-        #test.append(1)
-
-
-# 각 노드가 연결된 정보를 리스트 자료형으로 표현(2차원 리스트)
-graph = [
-  [],        # 0을 기준으로 연결되어 있는 노드
-  [2,3], # 1을 기준으로 연결되어 있는 노드
-  [4,5],
-  [6,7],
-  [],
-    [],
-    [],
-[]
-
-]
-
-# 각 노드가 방문된 정보를 리스트 자료형으로 표현(1차원 리스트)
-visited = [False] * 9
-
-# 탐색 시작 노드 1을 넣어주며 dfs() 실행
-dfs(graph, 1, visited,0)
-print(test)
+villiage.sort(key= lambda x: x[0])
+count = 0
+for i in range(N):
+    count += villiage[i] [1]
+    if count >= all_people/2:
+        print (villiage[i][0])
+        break
+end_time = time.time() # 측정 종료
+print("time:", end_time - start_time) # 수행 시간 출력
