@@ -1,21 +1,13 @@
-import time
-import time
-start_time = time.time() # 측정 시작
-
 import sys
 input = sys.stdin.readline
 
 n, k = map(int, input().split())
-numbers = input().rstrip()
+num = input().rstrip()
 stack = []
-for number in numbers:
-    while stack and stack[-1] < number and k > 0:
-        stack.pop()
+for i in num:
+    while stack and stack[-1] < i and k > 0: #스택이 비어져있고 stack[-1]< i ,k>0 클때 while문 벗어남
+        stack.pop()                          #새로 들어온 수가 더 큰경우 앞에 있는것 지우기
         k -= 1
-    stack.append(number)
-if k > 0:
-    print(''.join(stack[:-k]))
-else:
-    print(''.join(stack))
-end_time = time.time() # 측정 종료
-print("time:", end_time - start_time) # 수행 시간 출력
+    stack.append(i)
+
+print(''.join(stack[:len(stack)-k])) #k가 0이상일때 k만큼 지우고 출력
