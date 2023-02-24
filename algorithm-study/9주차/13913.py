@@ -4,10 +4,10 @@ from collections import deque
 cnt=0
 def path(x):
     arr=[]
-    temp=x
+    result=x
     for j in range(visit[x]+1):
-        arr.append(temp)
-        temp=move[temp]
+        arr.append(result)
+        result=node[result] #이전 기록
     print(" ".join(map(str,arr[::-1])))
 def bfs():
     q=deque()
@@ -22,12 +22,10 @@ def bfs():
             if 0<=i<100001 and visit[i]==0:
                 q.append(i)
                 visit[i]=visit[x]+1
-                move[i]=x
-
-
+                node[i]=x # 이전기록 저장
 
 
 n,k = map(int,input().split())
-visit=[0]*100001
-move=[0]*100001
+visit=[0]*100001 #count
+node=[0]*100001 #경로 기록
 bfs()
