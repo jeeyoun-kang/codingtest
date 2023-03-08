@@ -17,7 +17,7 @@ for i in range(1, N + 1):
             if not visited[j]:
                 stack.append(j)
                 visited[j] = True
-            elif visited[j] and i == j:
+            elif visited[j] and i == j: #사이클 돌았을때
                 result.add(j)
 
 result = list(result)
