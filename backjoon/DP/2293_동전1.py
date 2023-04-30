@@ -6,6 +6,5 @@ for i in range(n):
     c.append(int(input()))
 for i in c:
     for j in range(i, k + 1):
-        if j - i >= 0:
-            dp[j] += dp[j - i]
+        dp[j] += dp[j - i]
 print(dp[k])
