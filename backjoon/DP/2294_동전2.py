@@ -8,7 +8,7 @@ for i in range(n):
 
 dp = [10001] * (k + 1)
 dp[0] = 0
-
+print(dp)
 for j in coin:
     for i in range(j, k + 1):
         dp[i] = min(dp[i], dp[i - j] + 1)
