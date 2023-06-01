@@ -18,3 +18,16 @@ for i in data :
         count = 0
 
 
+# n = int(input())  # 여행가 수
+# temp = list(map(int, input().split()))  # 각 공포지수
+# # 공포도 x면 x명 이상으로 그룹 구현
+# temp.sort(reverse=True)
+# result = []
+# cnt = 0
+# for i in range(n):
+#     test = temp[0]  # 가장큰값
+#     for j in range(test - 1):
+#         temp.pop(-1)
+#     temp.pop(0)
+#     cnt += 1
+# print(cnt)
