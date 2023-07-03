@@ -1,18 +1,22 @@
-import sys
-from collections import deque
-input = sys.stdin.readline
-a,b = map(int,input().split())
-q=deque()
-q.append((a,1)) #1은 연산횟수를 의미
-r=0
-while(q):
-    n,t = q.popleft()
-    if n > b:
-        continue
-    if n == b:
-        print(t)
-        break
-    q.append((int(str(n)+"1"),t+1))
-    q.append((n*2,t+1))
-else:
-    print(-1)
+n=4
+computers=[[1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 1, 1], [0, 0, 1, 1]]
+
+
+def dfs(v):
+    visited[v] = True
+
+    for nei in range(n):  # 인접노드 탐구
+        if not visited[nei] and computers[v][nei]==1:  # unvisited + 인접할 때
+            dfs(nei)
+
+count = 0
+visited = [False] * (n)
+
+for node_idx in range(n):
+    if not visited[node_idx]:
+        dfs(node_idx)
+        count += 1  # dfs 끝나면 count 해주기
+
+print(count)
+
+

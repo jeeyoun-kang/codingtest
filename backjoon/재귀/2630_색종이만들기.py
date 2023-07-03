@@ -1,27 +1,28 @@
 import sys
 input = sys.stdin.readline
 
-N = int(input())
-paper = [list(map(int, input().split())) for _ in range(N)]
+n = int(input())
+paper = [list(map(int, input().split())) for _ in range(n)]
 
-result = []
+white,blue=0,0
 
-def cnt(x, y, N) :
+def cnt(x, y, n) :
+  global white,blue
   color = paper[x][y]
-  for i in range(x, x+N) :
-    for j in range(y, y+N) :
+  for i in range(x, x+n) :
+    for j in range(y, y+n) :
       if color != paper[i][j] :
-        cnt(x, y, N//2)
-        cnt(x, y+N//2, N//2)
-        cnt(x+N//2, y, N//2)
-        cnt(x+N//2, y+N//2, N//2)
+        cnt(x, y, n//2)
+        cnt(x, y+n//2,n//2)
+        cnt(x+n//2, y, n//2)
+        cnt(x+n//2, y+n//2, n//2)
         return
-  if color == 0 :
-    result.append(0)
+  if color == 0:
+    white+=1
   else :
-    result.append(1)
+    blue+=1
 
 
-cnt(0,0,N)
-print(result.count(0))
-print(result.count(1))
+cnt(0,0,n)
+print(white)
+print(blue)
