@@ -1,22 +1,17 @@
-n=4
-computers=[[1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 1, 1], [0, 0, 1, 1]]
+def solution(n, computers):
+    def dfs(v):
+        visited[v] = 1
 
+        for j in range(n):  # 인접 노드
+            if visited[j]==0 and computers[v][j]==1:  #인접한 노드중 방문하지 않은 노드가 있을때
+                dfs(j)
 
-def dfs(v):
-    visited[v] = True
+    count = 0
+    visited = [0] * (n)
 
-    for nei in range(n):  # 인접노드 탐구
-        if not visited[nei] and computers[v][nei]==1:  # unvisited + 인접할 때
-            dfs(nei)
+    for i in range(n):
+        if visited[i]==0:
+            dfs(i)
+            count += 1  # dfs 끝난 뒤 count
 
-count = 0
-visited = [False] * (n)
-
-for node_idx in range(n):
-    if not visited[node_idx]:
-        dfs(node_idx)
-        count += 1  # dfs 끝나면 count 해주기
-
-print(count)
-
-
+    return count
