@@ -12,7 +12,7 @@ def bfs():
             break
         for a in (bfs_v - 1, bfs_v + 1, bfs_v * 2):
             if 0 <= a <= 100000 and not visited[a]:
-                visited[a] = visited[bfs_v] + 1  # 노드에 이동시간 표시
+                visited[a] = visited[bfs_v] + 1  # 노드에 이동 시간 표시
                 queue.append(a)
 
 
