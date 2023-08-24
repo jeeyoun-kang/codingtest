@@ -46,3 +46,4 @@ for i in range(n):
 
 print(cnt_1,end=' ')
 print(cnt_2)
+
