@@ -1,0 +1,8 @@
+SELECT STUDENT_CODE,
+    CASE
+        WHEN SCORE >= 90 THEN 'A'
+        WHEN SCORE >= 80 THEN 'B'
+        WHEN SCORE >= 70 THEN 'C'
+        ELSE 'F'
+    END AS RESULT
+FROM EXAM;
