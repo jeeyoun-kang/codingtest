@@ -1,8 +1,6 @@
-import sys
-
-input = sys.stdin.readline
-
 from collections import deque
+import sys
+input = sys.stdin.readline
 
 N, M = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(N)]
@@ -42,3 +40,4 @@ for i in range(N):
         else:
             print(visited[i][j], end=' ')
     print()
+
