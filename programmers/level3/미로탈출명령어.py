@@ -42,7 +42,8 @@ def solution(n, m, x, y, r, c, k):
             result = ''.join(path)
             break
         remain, shortest_path = k - len(path), abs(x_pos - r) + abs(y_pos - c)
-        if remain < shortest_path or remain % 2 != shortest_path % 2: # 남은 이동수가 이동할수 있는 수보다 작거나 / 남은 이동 거리수와 k가 모두 홀수거나 짝수가 아닐때
+        # 남은 이동수가 이동할수 있는 수보다 작거나 / 남은 이동 거리수와 k가 모두 홀수거나 짝수가 아닐때
+        if remain < shortest_path or remain % 2 != shortest_path % 2:
             continue
         if x_pos > 1:
             stack.append((x_pos - 1, y_pos, path + ['u']))
@@ -53,3 +54,4 @@ def solution(n, m, x, y, r, c, k):
         if x_pos < n:
             stack.append((x_pos + 1, y_pos, path + ['d']))
     return result
+
