@@ -12,3 +12,5 @@ def solution(ability, number):  # 능력치,교육횟수
         heapq.heappush(ability, a + b)
 
     return sum(ability)
+
+print(solution([10,3,7,2],2))
