@@ -1,0 +1,23 @@
+#투포인터 - 연속된 수의 합이 m이 되는 경우의 수
+import sys
+input = sys.stdin.readline
+
+n,m = map(int,input().split())
+data = list(map(int,input().split()))
+
+count = 0
+interval_sum = 0 #부분합
+end = 0
+
+# start를 차례대로 증가시키며 반복
+for start in range(n):
+    # end를 가능한 만큼 이동시키기
+    while interval_sum < m and end < n:
+        interval_sum += data[end]
+        end += 1
+    # 부분합이 m일 때 카운트 증가
+    if interval_sum == m:
+        count += 1
+    interval_sum -= data[start]
+
+print(count)
