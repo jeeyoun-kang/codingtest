@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10 ** 6)
+sys.setrecursionlimit(10 ** 6) #파이썬 재귀 깊이 늘리기
 input = sys.stdin.readline
 
 

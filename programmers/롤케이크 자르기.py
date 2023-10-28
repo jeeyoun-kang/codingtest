@@ -3,6 +3,8 @@ from collections import Counter
 
 topping=[1, 2, 1, 3, 1, 4, 1, 2]
 dic = Counter(topping)
+
+print(sorted(dic.items(), key=lambda x:-x[1]))
 set_dic = set()
 res = 0
 for i in topping:
@@ -13,3 +15,8 @@ for i in topping:
     if len(dic) == len(set_dic):
         res += 1
 print(res)
+
+from itertools import product
+a = [1,2,3,4]
+b = [4,5,5,6]
+print(list(product(a,b,repeat=3)))
